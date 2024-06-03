@@ -1,0 +1,421 @@
+/* --- BASICS ------------------------------------- */
+* {
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+::selection {
+  background: rgba(251, 66, 121, 0.2);
+}
+
+body,
+html {
+  margin: 1rem;
+  padding: 0;
+  height: 0%;
+}
+
+body {
+  height: 150%;
+  background: url("https://i.imgur.com/uuQWrjQ.gif");
+  background-attachment: fixed;
+  font: 1rem "Montserrat", sans-serif;
+  color: #2E8B57;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.page-footer {
+  display: block;
+  width: 100%;
+  padding: 100px 0;
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* --- CARD SETUP ------------------------------- */
+.card {
+  position: relative;
+  overflow: hidden;
+  width: 430px;
+  height: 760px;
+  margin: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  background-color: black;
+  background-size: cover !important;
+}
+
+.front {
+  backdrop-filter: blur(0.5rem);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.portrait {
+  height: 100%;
+  object-fit: cover;
+  -webkit-mask-image: -webkit-linear-gradient(black 50%, rgba(0, 0, 0, 0) 72%);
+}
+
+/* --- CARD HOVER EFFECTS ------------ */
+.card:hover {
+  perspective: 1000px;
+  transform: rotateX(20deg) rotateY(-10deg);
+  transition: 0.3s;
+  margin-top: -1rem;
+}
+
+.card:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 500px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+  transition: 0.3s;
+  transform: skewX(-30deg);
+}
+
+.card:hover:after {
+  left: -350px;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+}
+
+.card:active {
+  transform: rotateY(-180deg);
+  transition: 0.2s;
+}
+
+/* --- TOP BLOCK ------------------------- */
+.top-block {
+  display: block;
+  position: absolute;
+  top: 2rem;
+  right: 1.5rem;
+  text-align: center;
+  justify-content: center;
+}
+
+/* --- STAR SIGN ------------------------- */
+.sign {
+  width: 75px;
+  height: 75px;
+  margin: auto;
+  transform: rotate(45deg);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  border-radius: 0.3rem;
+}
+
+.sign img {
+  transform: rotate(-45deg) translateX(0%) translateY(0%);
+  width: 100%;
+  height: 100%;
+  filter: invert(1);
+}
+
+.sanguine {
+  background: #bf3c49;
+}
+
+.choleric {
+  background: #bf9f5a;
+}
+
+.melancholic {
+  background: #706e70;
+}
+
+.phlegmatic {
+  background: #52849e;
+}
+
+/* --- PRONOUNS ------------------------- */
+.pronouns {
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: #000;
+  font-size: 0.6rem;
+  width: 90px;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  margin: auto;
+  margin-top: -0.5rem;
+}
+
+/* --- BOTTOM BLOCK ------------------------- */
+.bottom-block {
+  min-height: 330px;
+  width: 100%;
+  position: absolute;
+  padding: 2rem;
+  bottom: 0.5rem;
+}
+.bottom-block h2 {
+  text-transform: uppercase;
+  font-size: min(4rem, 11.3vw);
+  letter-spacing: -1px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  display: block;
+  margin: 0;
+  font-weight: 500;
+  text-shadow: 0 3px 0 black;
+}
+
+.class-icons {
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  text-shadow: 0 3px 0 black;
+}
+
+.class {
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 0 3px 0 black;
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+.class span {
+  padding-top: 0.5rem;
+  font-size: 0.7rem;
+  display: block;
+  text-shadow: 0 3px 0 black;
+}
+.class .sub {
+  margin-left: 0.3rem;
+  text-shadow: 0 3px 0 black;
+}
+
+/* --- SKILLS ----------------------------- */
+.skill-icons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.skill {
+  position: relative;
+  justify-content: center;
+  width: 85px;
+  height: 85px;
+  margin: auto;
+  border-radius: 0.3rem;
+}
+.skill img {
+  border-radius: 0.3rem;
+  width: 85px;
+  height: 85px;
+}
+.skill span {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+  display: block;
+  text-shadow: 0 3px 0 black;
+}
+
+/* --- BACK OF CARD -------------- */
+.back-card {
+  background: black;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.back-card h2 {
+  font-size: min(3rem, 9vw);
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+.back-card h3 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.details {
+  padding: 0 3rem;
+  display: block;
+  width: 100%;
+  margin-top: 100px;
+  text-align: left;
+}
+
+.bg-icon {
+  position: absolute;
+  font-size: 19rem;
+  opacity: 0.1;
+  padding-left: 3rem;
+}
+
+.right {
+  padding-left: 7rem;
+}
+
+.bio {
+  display: inline-block;
+  line-height: 1.5rem;
+}
+
+p.quote {
+  font-size: 0.8rem;
+  font-style: italic;
+  text-transform: lowercase;
+  margin-top: 1.6rem;
+  margin-left: 3.3rem;
+}
+
+.fa-quote-left {
+  font-size: 3rem;
+  float: left;
+  margin-top: 1rem;
+}
+
+/* --- CREDIT ------------------------------------------- */
+#credit {
+  background: #000;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 0.3rem;
+  z-index: 99999;
+}
+
+#credit:hover .hover {
+  visibility: visible;
+}
+
+.hover {
+  visibility: hidden;
+  background: #000;
+  position: absolute;
+  bottom: 35px;
+  left: 0px;
+  width: 360px;
+  height: auto;
+  z-index: 999;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 0.3rem;
+}
+.hover ul {
+  margin-left: 1rem;
+}
+.hover li {
+  padding: 0.3rem 0rem;
+  line-height: 1.2rem;
+}
+.hover a {
+  text-decoration: none;
+  color: #fb4279;
+}
+.hover a:hover {
+  color: #fff;
+}
+
+/* --- DEBUG ------------------------------------------- */
+.stat-block {
+  display: flex;
+  margin: 1.5rem 0;
+}
+
+.stat-row {
+  flex: 1;
+  line-height: 1.5rem;
+}
+
+.stat-icon {
+  width: 1.5rem;
+}
+
+.stat {
+  width: 4rem;
+  display: inline-block;
+}
+
+/* --- MOBILE SETUP --------------- */
+@media only screen and (max-width: 510px) {
+  .bottom-block {
+    margin-bottom: -1rem;
+  }
+
+  .skill {
+    width: 60px;
+    height: 60px;
+  }
+  .skill img {
+    border-radius: 0.3rem;
+    width: 60px;
+    height: 60px;
+  }
+  .skill span {
+    font-size: 0.8em;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 481px) {
+  .bottom-block {
+    margin-bottom: -4.5rem;
+  }
+  .bottom-block h2 {
+    margin-bottom: -1.9rem;
+  }
+
+  .skill {
+    margin: 1.5rem auto;
+    font-size: 0.8rem;
+  }
+
+  .class {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    line-height: 0.5rem;
+  }
+
+  .details {
+    padding: 0 2rem;
+  }
+
+  .quote {
+    font-size: 0.7rem !important;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .class-icons {
+    position: relative;
+  }
+
+  .class {
+    text-align: left;
+    display: block;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .class span {
+    padding: 0;
+  }
+}
